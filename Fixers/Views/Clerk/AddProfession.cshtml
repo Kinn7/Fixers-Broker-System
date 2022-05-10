@@ -1,0 +1,42 @@
+﻿@model Fixers.Models.Profession
+@{
+    ViewBag.title = "Add Profession";
+    ViewBag.activeP = "active";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProfession</title>
+</head>
+<body>
+    <div class="registration-form ">
+        <!--  <form action="/clerk/Dashboard" method="post">-->
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-md-12">
+
+                    @Html.EditorFor(m => m.name, new { htmlAttributes = new { @class = "form-control item", placeholder = "Profession Name" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account">Add Profession</button>
+            </div>
+        }
+        <!--</form>-->
+        <div class="social-media">
+            <h5>Form for adding a profession</h5>
+
+        </div>
+    </div>
+</body>
+</html>

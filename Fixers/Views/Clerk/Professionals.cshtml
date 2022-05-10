@@ -1,0 +1,100 @@
+﻿@model Fixers.Models.Professional
+@{
+    ViewBag.Title = "Professionals";
+    
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+
+
+</head>
+<body>
+
+
+
+    <div class="registration-form ">
+        <!--  <form action="/clerk/Dashboard" method="post">-->
+        @using (Html.BeginForm())
+        {
+
+            <div class="form-icon">
+                <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Balance, new { htmlAttributes = new { @class = "form-control", placeholder = "Balance" } })
+                @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+               
+                @Html.EnumDropDownListFor(m => m.Status, "Select Status", new { @class = "form-control " })
+                @Html.ValidationMessageFor(model => model.Status, "", new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Fee, new { htmlAttributes = new { @class = "form-control", placeholder = "Hourly rate" } })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+            <div>
+                @Html.EditorFor(m => m.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirm Password" } })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Address.kebele_id, new { htmlAttributes = new { @class = "form-control", placeholder = "Kebele Id" } })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Address.sub_city, new { htmlAttributes = new { @class = "form-control", placeholder = "Sub City" } })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Address.woreda, new { htmlAttributes = new { @class = "form-control", placeholder = "Woreda" } })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Address.house_no, new { htmlAttributes = new { @class = "form-control ", placeholder = "House No" } })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(m => m.Address.phone_no, new { htmlAttributes = new { @class = "form-control ", placeholder = "Phone No" } })
+            </div>
+            <div class="form-group">
+
+                @Html.DropDownListFor(model => model.ProfessionID, new SelectList(ViewBag.Profession, "id", "name"), new { @class = "form-control select-add-placeholder" })
+                @*@Html.DropDownList("id", new SelectList(ViewBag.Profession, "id", "id"))*@
+
+                @Html.ValidationMessageFor(model => model.AddressID, " ", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Picture, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Picture, new { type = "file" })
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block create-account">Create Account</button>
+            </div>
+        }
+        <!--</form>-->
+        <div class="social-media">
+            <h5>Registration Form For a Professional</h5>
+
+        </div>
+    </div>
+
+</body>
+</html>

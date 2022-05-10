@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Fixers.Models.Employer>
+@{
+    //  Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manage Employers";
+    ViewBag.activeE = "active";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="registration-form mt-4 bg-light"> 
+        <table class="table table-sm ml-5">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FirstName) </th>
+                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address.phone_no)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address.phone_no)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address.house_no)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var employes in Model)
+            {
+                <tr>
+                    <td>@employes.FirstName</td>
+                    <td>@employes.LastName</td>
+                    <td>@employes.Address.phone_no</td>
+                    <td>@employes.Address.woreda</td>
+                    <td>@employes.Address.house_no</td>
+                    <td> @Html.ActionLink("Delete", "DeleteEmployers", new { id = employes.id })</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

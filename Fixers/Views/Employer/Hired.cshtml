@@ -1,0 +1,53 @@
+﻿@model List<Fixers.Models.HireStatus>
+@{
+    ViewBag.Title = "Hired";
+}
+
+
+
+<div class="registration-form pl-5 mt-4 bg-light">
+    <div class="container">
+        @foreach (var professional in Model)
+        {
+            <div class="card">
+                <div class="card-header"
+                     style="background-image: 1.png">
+                    <div class="avatar-holder">
+                        <img src="~/Content/1.png" alt="">
+
+                    </div>
+
+
+                    <div class="card-header-slanted-edge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+                        
+
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h2 class="name">
+                        @professional.Professional.FirstName  @professional.Professional.LastName
+                    </h2>
+                    <h4 class="job-title">@professional.Professional.Profession.name</h4>
+                    <div class="bio">
+                        <dl>
+                            <dt>
+                                <h4>  sub_city</h4>
+                            </dt>
+                            <dd> @professional.Professional.Address.sub_city</dd>
+                            <dt><h4>woreda</h4></dt>
+                            <dd>@professional.Professional.Address.woreda</dd>
+                            <dt>Phone no</dt>
+                            <dd>@professional.Professional.Address.phone_no</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+
+
+    </div>

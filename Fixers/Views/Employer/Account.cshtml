@@ -1,0 +1,59 @@
+﻿@model Fixers.Models.Employer
+@{
+    ViewBag.Title = "Account";
+}
+
+
+
+<div class="registration-form">
+    @using (Html.BeginForm("Account","Employer",FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control ", placeholder = "First Name" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control ", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control ", placeholder = "Password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control ", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-lg-12 ">
+                @Html.EditorFor(m => m.Address.kebele_id, new { htmlAttributes = new { @class = "form-control", placeholder = "Kebele Id" } })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Address.sub_city, new { htmlAttributes = new { @class = "form-control", placeholder = "Sub City" } })
+            </div>
+
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Address.woreda, new { htmlAttributes = new { @class = "form-control", placeholder = "Woreda" } })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Address.house_no, new { htmlAttributes = new { @class = "form-control ", placeholder = "House No" } })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.EditorFor(m => m.Address.phone_no, new { htmlAttributes = new { @class = "form-control ", placeholder = "Phone No" } })
+            </div>
+
+
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Edit</button>
+        </div>
+
+    }
+
+</div>

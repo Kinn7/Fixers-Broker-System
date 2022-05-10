@@ -1,0 +1,57 @@
+﻿@model List<Fixers.Models.HireStatus>
+@{
+    ViewBag.Title = "EmploymentStatus";
+}
+
+
+
+
+<div class="registration-form pl-5 mt-4 bg-light">
+    <div class="container">
+        @foreach (var Employer in Model)
+        {
+        <div class="card">
+            <h4 class="text-success text-center">Employed By</h4>
+            <div class="card-header"
+                 style="background-image: 1.png">
+                <div class="avatar-holder">
+                    <img src="~/Content/1.png" alt="">
+
+                </div>
+
+
+                <div class="card-header-slanted-edge">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+                    @*<a href="Reject/@Employer.EmployerID" class="btn-follow"><span class="sr-only">Follow</span></a>*@
+
+
+
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h2 class="name">
+                    @Employer.Employer.FirstName  @Employer.Employer.LastName
+                </h2>
+                <h4 class="job-title">@Employer.Employer.Email</h4>
+                <div class="bio">
+                    <dl>
+                        <dt>
+                            <h4>  sub_city</h4>
+                        </dt>
+                        <dd> @Employer.Employer.Address.sub_city</dd>
+                        <dt><h4>woreda</h4></dt>
+                        <dd>@Employer.Employer.Address.woreda</dd>
+                    </dl>
+                </div>
+            </div>
+            <a href="Reject/@Employer.EmployerID" class="btn btn-danger mx-5">Reject</a>
+        </div>
+
+
+        }
+
+
+
+    </div>

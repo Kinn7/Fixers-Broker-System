@@ -1,0 +1,49 @@
+﻿@model  IEnumerable<Fixers.Models.Professional>
+@{
+    ViewBag.Title = "ManageProfessional";
+    ViewBag.activeMP = "active";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+    <div class="registration-form pl-5 mt-4 bg-light">
+        <a href="/clerk/Professionals" class="btn btn-info p-2 mb-5">Add a Professional</a>
+        <table class="table table-sm ml-5">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FirstName) </th>
+                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.Status) </th>
+                    <th>@Html.DisplayNameFor(model => model.Balance)</th>
+                    <th>@Html.DisplayNameFor(model => model.Profession.name) </th>
+                    <th>@Html.DisplayNameFor(model => model.Address.sub_city)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address.woreda)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var professional in Model)
+                {
+                <tr>
+                    <td>@professional.FirstName</td>
+                    <td>@professional.LastName</td>
+                    <td>@professional.Status</td>
+                    <td>@professional.Balance</td>
+                    <td>@professional.Profession.name</td>
+                    <td>@professional.Address.sub_city</td>
+                    <td>@professional.Address.woreda</td>
+                    <td><a href="EditProfessional/@professional.ID" class="btn btn-info">Edit</a></td>
+                    <td><a href="DeleteProfessionals/@professional.ID" class="btn btn-danger mx-0">Delete</a></td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+
